@@ -1,0 +1,16 @@
+version: '3'
+services:
+  server:
+    container_name: sswap-back-app
+    image: marcellindev/sswap-back
+    environment:
+      - UPLOAD_DIR=/public
+      - UPLOAD_IDENTITY_DIR=/private
+    volumes:
+      - /usr/src/app/sswap/public:/public
+      - /usr/src/app/sswap/private:/private
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 8006:5000
